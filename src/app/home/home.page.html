@@ -1,19 +1,88 @@
 <div style="text-align:center">
-
-
-  <nav style="text-align:center">
-    <a routerLink="/asamlaksak" routerLinkActive="active">
-      <img src="./assets/image/AsamLaksak.jpeg" height="auto 50%" width="40% auto"></a>
-    <a routerLink="/KamHeongChicken" routerLinkActive="active">
-      <img src="./assets/image/KamHeongChicken.jpeg" height="auto 50%" width="40% auto"></a>
-    <a routerLink="/MarmiteChicken" routerLinkActive="active">
-      <img src="./assets/image/MarmiteChicken.jpeg" height="auto 50%" width="40% auto"></a>
-    <a routerLink="/SaltedEggBeef" routerLinkActive="active">
-      <img src="./assets/image/SaltedEggBeef.jpeg" height="auto 50%" width="40% auto"></a>
-    <a routerLink="/SzeChuanNoodles" routerLinkActive="active">
-      <img src="./assets/image/SzeChuanNoodles.jpeg" height="auto 50%" width="40% auto"></a>
-    <a routerLink="/Spaghetti" routerLinkActive="active">
-      <img src="./assets/image/Spaghetti.jpeg" height="auto 50%" width="40% auto"></a>
-  </nav>
+  <div class="container">
+    <div [hidden]="submitted">
+      <h2>User Form</h2>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+  
+          <!-- Validate First Name -->
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName"
+                 required
+                 [(ngModel)]="model.firstName" name="firstName"
+                 #firstName="ngModel">
+          <div [hidden]="firstName.valid || firstName.pristine"
+               class="alert alert-danger">
+               First Name is required
+          </div>
+        </div>
+  
+        <!-- Validate Last Name -->
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required
+                 [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
+                 <div [hidden]="lastName.valid || lastName.pristine"
+               class="alert alert-danger">
+               Last Name is required
+          </div>
+        </div>
+  
+        <!-- Validate Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" required pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                 [(ngModel)]="model.email" name="email" #email="ngModel">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+      class="alert alert-danger"> 
+              <p *ngIf="email.errors.required">Email is required</p>  
+              <p *ngIf="email.errors.pattern">Please provide a valid email address</p>
+            </div>
+      
+        </div>
+  
+        <!-- Gender Selection -->
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender"
+                  required
+                  [(ngModel)]="model.gender" name="gender"
+                  #gender="ngModel">
+            <option *ngFor="let gen of genders" [value]="gen">{{gen}}</option>
+          </select>
+          <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
+            gender is required
+          </div>
+        </div>
+  
+        <!-- Validate Password -->
+        <div class="form-group">
+          <label for="password">Password</label> 
+          <input type="password" class="form-control" id="password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}" 
+                 [(ngModel)]="model.password" name="password" #password="ngModel">
+                 <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                 class="alert alert-danger">
+               <p *ngIf="password.errors.required">Password is required</p>  
+               <p *ngIf="password.errors.pattern">The password must be at least 8 characters. It should include at least one upper case letter, and at least one lower case, at least one special character(ex:@$!%*?&) and at least one number.</p>
+          </div>
+        </div>
+  
+        <!-- Validate Confirm Password -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" required pattern="{{ password.value }}"
+                 [(ngModel)]="model.confirmPassword" name="confirmPassword" #confirmPassword="ngModel">
+                 <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+                 class="alert alert-danger">
+               <p *ngIf="confirmPassword.errors.required">Confirm Password is required.</p>  
+               <p *ngIf="confirmPassword.errors.pattern">Confirm Password does not match with password.</p>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid" routerLink="/Menu" routerLinkActive="active">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New User</button>
+      </form>
+    </div>
+  </div>
 </div>
 <br />

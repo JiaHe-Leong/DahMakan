@@ -15,6 +15,8 @@ import { MarmiteChickenComponent } from '../app/marmite-chicken/marmite-chicken.
 import { SaltedEggBeefComponent } from '../app/salted-egg-beef/salted-egg-beef.component';
 import { SpaghettiComponent } from '../app/spaghetti/spaghetti.component';
 import { SzeChuanNoodlesComponent } from '../app/sze-chuan-noodles/sze-chuan-noodles.component';
+import { MenuPageModule } from '../app/menu/menu.module';
+import { MenuPage } from '../app/menu/menu.page';
 
 const appRoutes: Routes = [
   { path: 'asamlaksak', component: AsamLaksaComponent },
@@ -22,17 +24,18 @@ const appRoutes: Routes = [
   { path: 'MarmiteChicken', component: MarmiteChickenComponent },
   { path: 'SaltedEggBeef', component: SaltedEggBeefComponent },
   { path: 'SzeChuanNoodles', component: SzeChuanNoodlesComponent },
-  { path: 'Spaghetti', component: SpaghettiComponent }
+  { path: 'Spaghetti', component: SpaghettiComponent },
+  { path: 'Menu', component: MenuPage}
   
 ];
 
 @NgModule({
   declarations: [AppComponent,AsamLaksaComponent,KamHeongChickenComponent,MarmiteChickenComponent,SaltedEggBeefComponent,SpaghettiComponent,SzeChuanNoodlesComponent],
-  entryComponents: [],
+  entryComponents: [MenuPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,RouterModule.forRoot(
     appRoutes,
     { enableTracing: true } // <-- debugging purposes only
-  )],
+  ),MenuPageModule],
   providers: [
     StatusBar,
     SplashScreen,
