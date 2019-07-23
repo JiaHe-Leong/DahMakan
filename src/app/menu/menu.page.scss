@@ -1,0 +1,12 @@
+.column  {
+    float: center !important;
+     width: 50% !important;
+    padding: 5px !important;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "" !important;
+    clear: both !important;
+    display: table !important;
+  }

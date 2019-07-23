@@ -1,10 +1,8 @@
-<div *ngFor="let product of products; index as productId" style="text-align:center">
+<div class="row" *ngFor="let product of products; index as productId" style="text-align:center">
   
-  <nav style="text-align:center">
-<a [title]="product.name + ' details'"
-[routerLink]="['/products', productId]">
-<img src="{{ product.img }}" height="250px" weight="50px">
-</a>
+  <nav>
+<a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+<img class="column" src="{{ product.img }}" height="250px"></a>
 </nav>
 
   </div>
