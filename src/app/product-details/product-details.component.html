@@ -1,0 +1,15 @@
+<div style="text-align:left">
+<button routerLink="/menu" routerLinkActive="active" >Back</button>
+</div>
+
+
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <img src="{{ product.img }}" height="250px" weight="50px">
+    <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+
+</div>
+
