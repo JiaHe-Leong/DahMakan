@@ -21,7 +21,7 @@ export class OrderComponent implements OnInit {
 	ngOnInit() {
 		this.activatedRoute.params.subscribe(params => {
 			var id = params['id'];
-			if (id) {
+			if (id>-1) {
 				var item: Item = {
 					product: this.productService.find(id),
 					quantity: 1
