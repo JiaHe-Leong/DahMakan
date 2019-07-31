@@ -8,7 +8,7 @@
 <div *ngIf="product">
   <img src="{{ product.img }}" height="250px" weight="50px">
     <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
+  <h4>{{ product.price | currency: "RM"}}</h4>
   <p>{{ product.description }}</p>
 
   <br>

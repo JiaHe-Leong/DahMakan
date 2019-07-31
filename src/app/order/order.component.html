@@ -40,13 +40,13 @@
      
             <img src="{{item.product.photo}}" width="50"><a style="float: right" (click)="remove(item.product.id)">X</a><br>
             {{item.product.name}}<br>
-            RM : {{item.product.price}}<br>
+            {{item.product.price | currency: "RM"}}<br>
        Qty :  {{item.quantity}}<br>
-       Subtotal : RM  {{item.product.price * item.quantity}}<br>
+       Subtotal : {{item.product.price * item.quantity | currency: "RM"}}<br>
       </tr>
     <tr>
       
-        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; " >TOTAL : RM {{total}}</td>
+        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; " >TOTAL : {{total | currency: "RM"}}</td>
     </tr>
 </table>
 <div style="text-align:right">
