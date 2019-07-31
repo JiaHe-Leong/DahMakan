@@ -1,18 +1,35 @@
-<div style="text-align:left" >
-  <button routerLink="/menu" routerLinkActive="active" >Back</button>
+<h3>Cart Info</h3>
+<div style="text-align:left">
+  <button routerLink="/menu" routerLinkActive="active" >Menu</button>
   </div>
-
-<div style="text-align:center">
-  
-  <div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-  <label>Your order has been submitted!</label><br>
-  <label>Thank you for ordering from us</label><br>
-  
-  </div>
+<table border="1">
+    <tr>
+        <th>Option</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td align="center">
+            <a (click)="remove(item.product.id)">X</a>
+        </td>
+        <td>{{item.product.id}}</td>
+        <td>{{item.product.name}}</td>
+        <td>
+            <img src="{{item.product.photo}}" width="50">
+        </td>
+        <td>{{item.product.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.product.price * item.quantity}}</td>
+    </tr>
+    <tr>
+        <td colspan="6" align="right">Total</td>
+        <td>{{total}}</td>
+    </tr>
+</table>
+<div style="text-align:right">
+  <button (click)="clearCart();">ClearCart</button>
   </div>

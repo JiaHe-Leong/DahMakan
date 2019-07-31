@@ -13,11 +13,12 @@ import { MenuPageModule } from '../app/menu/menu.module';
 import { MenuPage } from '../app/menu/menu.page';
 import { OrderComponent } from '../app/order/order.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductService } from './services/product.service';
 
 const appRoutes: Routes = [
 
   { path: 'Menu', component: MenuPage},
-  { path: 'Order', component: OrderComponent},
+  { path: 'Order/:id', component: OrderComponent},
   { path: 'products/:productId', component: ProductDetailsComponent }
 ];
 
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   providers: [
     StatusBar,
     SplashScreen,
+    ProductService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

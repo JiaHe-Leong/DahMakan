@@ -1,5 +1,5 @@
 <div style="text-align:left">
-<button routerLink="/menu" routerLinkActive="active" >Back</button>
+<button routerLink="/menu" routerLinkActive="active" >Menu</button>
 </div>
 
 
@@ -12,6 +12,6 @@
   <p>{{ product.description }}</p>
 
   <br>
-  <button type="button" class="btn" routerLink="/Order" routerLinkActive="active">Order Now</button>
+  <button type="button" class="btn" (click)="order();">Add To Cart</button>
 </div>
 
