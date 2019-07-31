@@ -19,6 +19,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 const appRoutes: Routes = [
 
   { path: 'Menu', component: MenuPage},
+  { path: 'Order', component: OrderComponent},
   { path: 'Order/:id', component: OrderComponent},
   { path: 'products/:productId', component: ProductDetailsComponent },
   { path: 'checkout', component: CheckoutComponent}
