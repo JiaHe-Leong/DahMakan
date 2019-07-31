@@ -32,34 +32,21 @@
 <div style="text-align:left">
   <button routerLink="/menu" routerLinkActive="active" >Menu</button>
   </div>
-
+<br><br>
   
 <table id="orders" >
+   <tr *ngFor="let item of items">
+            <br>
+     
+            <img src="{{item.product.photo}}" width="50"><a style="float: right" (click)="remove(item.product.id)">X</a><br>
+            {{item.product.name}}<br>
+            RM : {{item.product.price}}<br>
+       Qty :  {{item.quantity}}<br>
+       Subtotal : RM  {{item.product.price * item.quantity}}<br>
+      </tr>
     <tr>
-        <th>Option</th>
-        <th>Name</th>
-        <th>Photo</th>
-        <th>Price(RM)</th>
-        <th>Quantity</th>
-        <th>Sub Total</th>
-    </tr>
-    <tr *ngFor="let item of items">
-        <td align="center">
-            <a (click)="remove(item.product.id)">X</a>
-        </td>
-       
-        <td>{{item.product.name}}</td>
-        <td>
-            <img src="{{item.product.photo}}" width="50">
-        </td>
-        <td>{{item.product.price}}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.product.price * item.quantity}}</td>
-    </tr>
-    <tr>
-        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; "
-       colspan="5" align="right">Total</td>
-        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; " >{{total}}</td>
+      
+        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; " >TOTAL : RM {{total}}</td>
     </tr>
 </table>
 <div style="text-align:right">

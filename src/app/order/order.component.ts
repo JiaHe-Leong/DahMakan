@@ -10,12 +10,12 @@ import { ProductService } from '../services/product.service';
 })
 export class OrderComponent implements OnInit {
 
-	private items: Item[] = [];
-	private total: number = 0;
+	public items: Item[] = [];
+	public total: number = 0;
 
 	constructor(
-		private activatedRoute: ActivatedRoute,
-		private productService: ProductService
+		public activatedRoute: ActivatedRoute,
+		public productService: ProductService
 	) { }
 
 	ngOnInit() {
@@ -58,7 +58,7 @@ export class OrderComponent implements OnInit {
 	}
 
 	loadCart(): void {
-		this.total = 0;
+		this.total = 0.00;
 		this.items = [];
 		let cart = JSON.parse(localStorage.getItem('cart'));
 		for (var i = 0; i < cart.length; i++) {
@@ -67,7 +67,8 @@ export class OrderComponent implements OnInit {
 				product: item.product,
 				quantity: item.quantity
 			});
-			this.total += item.product.price * item.quantity;
+			this.total += (item.product.price * item.quantity) ;
+			this.total.toFixed(2);
 		}
 	}
 
