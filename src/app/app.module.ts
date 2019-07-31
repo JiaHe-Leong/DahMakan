@@ -14,18 +14,19 @@ import { MenuPage } from '../app/menu/menu.page';
 import { OrderComponent } from '../app/order/order.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductService } from './services/product.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
 
   { path: 'Menu', component: MenuPage},
   { path: 'Order', component: OrderComponent},
   { path: 'Order/:id', component: OrderComponent},
-  { path: 'products/:productId', component: ProductDetailsComponent }
+  { path: 'products/:productId', component: ProductDetailsComponent },
+  { path: 'checkout', component: CheckoutComponent}
 ];
 
 @NgModule({
-  declarations: [AppComponent,OrderComponent,ProductDetailsComponent],
-  entryComponents: [MenuPage],
+  declarations: [AppComponent,OrderComponent,ProductDetailsComponent,CheckoutComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,RouterModule.forRoot(
     appRoutes,
     { enableTracing: true } // <-- debugging purposes only
