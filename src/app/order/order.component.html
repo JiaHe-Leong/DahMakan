@@ -45,8 +45,35 @@
        Subtotal : RM  {{item.product.price * item.quantity}}<br>
       </tr>
     <tr>
+<<<<<<< HEAD
       
         <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; " >TOTAL : RM {{total}}</td>
+=======
+        <th>Option</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price(RM)</th>
+        <th>Quantity</th>
+        <th>Sub Total(RM)</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td align="center">
+            <a (click)="remove(item.product.id)">X</a>
+        </td>
+       
+        <td>{{item.product.name}}</td>
+        <td>
+            <img src="{{item.product.photo}}" width="50">
+        </td>
+        <td>{{item.product.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.product.price * item.quantity}}</td>
+    </tr>
+    <tr>
+        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; "
+       colspan="5" align="right">Total</td>
+        <td style="color: black; font-family: Trebuchet MS, Arial, Helvetica, sans-serif; " >{{total}}</td>
+>>>>>>> ef2243831971b1173d4be2401751ef4a54496dfa
     </tr>
 </table>
 <div style="text-align:right">
