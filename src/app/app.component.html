@@ -3,7 +3,7 @@
   <div style="text-align:center">
     <h1>Sudah Makan Menu</h1>
 
-    <nav *ngIf="router.url !== '/home' && router.url !== '/Order'">
+    <nav *ngIf="router.url !== '/home' && router.url !== '/Order' && router.url !== '/checkout'">
       <a [routerLink]="'/Order'">
         <img  src="../assets/icon/cart.png" style="float: right; padding: right 20%;" height="50px" width="50px">
       </a><br><br><br>
