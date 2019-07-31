@@ -18,6 +18,7 @@ import { ProductService } from './services/product.service';
 const appRoutes: Routes = [
 
   { path: 'Menu', component: MenuPage},
+  { path: 'Order', component: OrderComponent},
   { path: 'Order/:id', component: OrderComponent},
   { path: 'products/:productId', component: ProductDetailsComponent }
 ];

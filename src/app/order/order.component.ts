@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../entities/item.entity';
 import { ProductService } from '../services/product.service';
 
@@ -9,16 +9,17 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./order.component.scss'],
 })
 export class OrderComponent implements OnInit {
-
 	public items: Item[] = [];
 	public total: number = 0;
 
 	constructor(
 		public activatedRoute: ActivatedRoute,
-		public productService: ProductService
+		public productService: ProductService,
+		public router: Router
 	) { }
 
 	ngOnInit() {
+		
 		this.activatedRoute.params.subscribe(params => {
 			var id = params['id'];
 			if (id>-1) {
@@ -54,7 +55,10 @@ export class OrderComponent implements OnInit {
 			} else {
 				this.loadCart();
 			}
-		});
+			setTimeout(() => {
+				this.router.navigate(['Order']);
+			}, -1);
+			});
 	}
 
 	loadCart(): void {
