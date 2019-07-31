@@ -38,7 +38,7 @@
    <tr *ngFor="let item of items">
             <br>
      
-            <img src="{{item.product.photo}}" width="50"><button style="float: right" (click)="remove(item.product.id)">Remove</button><br>
+            <img src="{{item.product.photo}}" width="50"><a style="float: right" (click)="remove(item.product.id)">X</a><br>
             {{item.product.name}}<br>
             {{item.product.price | currency: "RM"}}<br>
        Qty :  {{item.quantity}}<br>
