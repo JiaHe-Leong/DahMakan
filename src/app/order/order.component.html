@@ -41,7 +41,7 @@
             <img src="{{item.product.photo}}" width="50"><a style="float: right" (click)="remove(item.product.id)">X</a><br>
             {{item.product.name}}<br>
             {{item.product.price | currency: "RM"}}<br>
-       Qty :  {{item.quantity}}<br>
+            Qty :  <button (click)="minusQuantity(item.product.id)">-</button>{{item.quantity}}<button (click)="addQuantity(item.product.id)">+</button><br>
        Subtotal : {{item.product.price * item.quantity | currency: "RM"}}<br>
       </tr>
     <tr>

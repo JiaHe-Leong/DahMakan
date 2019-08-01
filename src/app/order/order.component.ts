@@ -90,6 +90,36 @@ export class OrderComponent implements OnInit {
 		this.loadCart();
 	}
 
+	addQuantity(id: string): void {
+		let cart: any = JSON.parse(localStorage.getItem('cart'));		
+		for (var i = 0; i < cart.length; i++) {
+			let item: Item = JSON.parse(cart[i]);
+			if (item.product.id == id) {
+				item.quantity +=1;
+				cart[i] = JSON.stringify(item);
+			}
+		}			
+			
+		localStorage.setItem("cart", JSON.stringify(cart));
+		this.loadCart();		
+	}
+
+	minusQuantity(id: string): void {
+		let cart: any = JSON.parse(localStorage.getItem('cart'));		
+		for (var i = 0; i < cart.length; i++) {
+			let item: Item = JSON.parse(cart[i]);
+			if (item.product.id == id) {
+				if(item.quantity>1){
+					item.quantity -=1;
+					cart[i] = JSON.stringify(item);
+				}				
+			}
+		}			
+			
+		localStorage.setItem("cart", JSON.stringify(cart));
+		this.loadCart();						
+	}
+
 	clearCart(){
 		let cart: any = [];
 		
